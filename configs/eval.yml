@@ -1,0 +1,23 @@
+_BASE_: "Pirt.yml"
+
+MODEL:
+  WEIGHTS: "path/to/your/model/weights.pth"
+  DEVICE: "cuda"
+
+DATALOADER:
+  PK_SAMPLER: True
+  NAIVE_WAY: True
+  NUM_INSTANCE: 4
+  NUM_WORKERS: 8
+
+CUDNN_BENCHMARK: True
+
+TEST:
+  IMS_PER_BATCH: 64
+  EVALUATOR: "PirtEvaluator"
+
+DATASETS:
+  NAMES: ("OccludedDuke", )
+  TESTS: ("OccludedDuke", )
+
+OUTPUT_DIR: "logs/eval"
